@@ -1,0 +1,10 @@
+{
+	"db": {
+		"host": "somerdsurl.rds.amazonaws.com",
+    "port": 3306,
+    "username": "rds_username",
+    "password": "rds_password",
+    "database": "db_name",
+    "dialect": "mysql"
+	}
+}

@@ -1,0 +1,21 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+
+  ::ng-deep {
+      .mat-nav-list {
+          padding-top: 0px!important;
+
+          .mat-list-item {
+              height: 40px!important;
+              .ui-select-container {
+                  width: 215px!important;
+              }
+          }
+      }
+  }
+
+}
+

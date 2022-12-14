@@ -1,0 +1,7 @@
+<mat-nav-list class="gn-sidebar-list">
+  <gn-navbar-menu-item *ngFor="let item of menuItems"
+    [item]="item"
+    [expanded]="allItemsExpanded"
+    (onItemClick)="onItemClick.emit($event)">
+  </gn-navbar-menu-item>
+</mat-nav-list>

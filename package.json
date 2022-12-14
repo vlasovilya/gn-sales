@@ -1,0 +1,50 @@
+{
+  "name": "green-ninja-sales",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --disable-host-check",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "nginx": "sudo nginx -s stop; sudo nginx -c \"$(pwd)/nginx.dev.conf\""
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^15.0.0",
+    "@angular/cdk": "^15.0.0",
+    "@angular/common": "^15.0.0",
+    "@angular/compiler": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@angular/forms": "^15.0.0",
+    "@angular/material": "^15.0.0",
+    "@angular/platform-browser": "^15.0.0",
+    "@angular/platform-browser-dynamic": "^15.0.0",
+    "@angular/router": "^15.0.0",
+    "@ivlasov/rxsync": "^1.2.0",
+    "@ngx-loading-bar/router": "^6.0.2",
+    "bcrypt-nodejs": "^0.0.3",
+    "cookie-session": "^2.0.0",
+    "lodash": "^4.17.21",
+    "lodash.template": "^4.5.0",
+    "mysql2": "^2.3.3",
+    "rxjs": "~7.5.0",
+    "sequelize-auto": "^0.8.4",
+    "sequelize-cli": "^6.2.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.0.0",
+    "@angular/cli": "~15.0.0",
+    "@angular/compiler-cli": "^15.0.0",
+    "@types/jasmine": "~4.3.0",
+    "jasmine-core": "~4.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~4.8.2"
+  }
+}

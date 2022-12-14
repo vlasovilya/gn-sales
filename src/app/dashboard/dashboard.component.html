@@ -1,0 +1,7 @@
+<h2>User Worksheets</h2>
+<ul>
+    <li *ngFor="let item of worksheets">
+        <span *ngIf="!item.path">{{item.name}}</span>
+        <a *ngIf="item.path" [href]="item.path" target="_blank">{{item.name}}</a>
+    </li>
+</ul>

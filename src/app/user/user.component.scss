@@ -1,0 +1,241 @@
+@import 'colors';
+$center-align: center;
+.layout-centered-body {
+    flex: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    &.sm {
+
+      ::ng-deep {
+        #login-container #login {
+          margin-top: 20px;
+        }
+      }
+
+    }
+    &.md {
+      ::ng-deep {
+        #login-container #login {
+          margin-top: 40px;
+        }
+      }
+
+    }
+
+
+}
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.user__logo {
+    text-align: center;
+}
+.user__logo-title {
+    padding: 15px 0 25px 0;
+    font-size: 1.143em;
+}
+
+:host ::ng-deep {
+  .signin-component {
+    width: 100%;
+    max-width: 756px;
+  }
+  .mdc-button {
+    width: 100%;
+  }
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+}
+
+
+
+.mat-card {
+    margin-top: 15%;
+    width: 280px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    padding: 0;
+}
+
+.card-header__item {
+    display: block;
+    width: 50%;
+    line-height: 44px;
+    font-weight: 600;
+    text-align: center;
+    color: red;
+    border-bottom: 1px solid #d1d1d1;
+    &:not(.active) {
+        background-color: blue;
+        border-bottom-color: blue;
+        color: #fff;
+    }
+}
+
+.card-block {
+    padding: 27px 32px;
+}
+
+.form-control {
+    padding: 0.6rem 0.75rem;
+}
+
+.form-text {
+    font-size: 0.857em;
+}
+
+.form-link {
+    color: #ccc ;
+}
+
+.input-group-addon {
+    width: 40px;
+    font-size: 1.286em;
+}
+
+
+
+#login-container {
+  .login-wrapper {
+
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .forget-link {
+    float: right
+  }
+
+  #login {
+    margin-top: 70px;
+  }
+
+  .forgot-box {
+    margin-bottom: 20px;
+    margin-top: -19px
+  }
+
+  #login-logo {
+    text-align: center;
+  }
+
+  .logins-separator span{
+    width: 100%;
+    height:30px;
+    text-align: center;
+    color: $login-separator-color;
+    border: 0px;
+    margin-top: 0px auto;
+    display: table;
+    font-family: 'Muli-Bold';
+    font-size:18px;
+  }
+
+  .clever-btn button{
+    width: 210px;
+    height:54px;
+    border-radius: 40px;
+    color: $sticky-nav-item-color;
+    border: none;
+    margin: 0px auto;
+    display: table;
+    font-family: 'Muli-Bold';
+    font-size:18px;
+    background: $clever-btn-color;
+  }
+    .clever-btn input.disabled{
+      pointer-events: none;
+      background: $auth-btn;
+    }
+    .clever-btn {
+      margin-top: 10px;
+    }
+}
+
+#signup-container {
+  max-width: 756px;
+  h1 {
+    line-height: 1.2;
+  }
+}
+:host ::ng-deep {
+  .mat-form-field-prefix {
+    img {
+      width: 36px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+  }
+  .mat-raised-button {
+    width: 100%;
+    margin-top: 10px!important;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .register-confirmed-container {
+    background: $sticky-nav-item-color;
+    float: left;
+    padding: 25px 15px;
+    float: left;
+    border-radius: 25px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $pe-box-color;
+    h1 {
+      font-size: 40px;
+      text-align: justify;
+      color: $auth-heading;
+      font-family: "Muli-Bold";
+    }
+    .info-text {
+      margin: 10px auto;
+      text-align: justify;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 16.43px;
+      padding: 8px;
+    }
+    .modal-title {
+      font-size: xx-large;
+      font-weight: bold;
+      margin-top: 0px;
+      padding: 5px;
+    }
+    .modal-body {
+      padding: 15px;
+      text-align: left;
+      font-size: large;
+    }
+  }
+}
+

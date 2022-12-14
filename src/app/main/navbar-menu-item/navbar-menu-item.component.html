@@ -1,0 +1,55 @@
+<ng-template #itemBody>
+  <div matLine class="gn-sidebar-list-link-content">
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon><i *ngIf="item.iconUrl"><img [src]="item.iconUrl" [ngStyle]="{height:'16px'}"/></i><span class="menu-item-title">{{ item.title }}</span>
+  </div>
+</ng-template>
+
+
+<a mat-list-item *ngIf="!item.children && !item.url && !item.onClick" [routerLink]="[item.path]" (click)="onItemClick.emit(item)" [ngClass]="{'active': item.path ? router.isActive(item.path, false): false, 'expanded': expanded}"
+   class="gn-sidebar-list-link menu-list-item" [title]="item.title">
+   <ng-container
+        *ngTemplateOutlet="itemBody">
+    </ng-container>
+</a>
+
+<a mat-list-item *ngIf="!item.children && !item.url && item.onClick" (click)="item.onClick($event)" [ngStyle]="{'padding-left': getPaddingVal() + 'px'}" [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
+   class="gn-sidebar-list-link menu-list-item" [title]="item.title" [attr.class]="'gn-sidebar-list-link menu-list-item menu-item-level-'+depth">
+   <ng-container
+        *ngTemplateOutlet="itemBody">
+    </ng-container>
+</a>
+
+<a mat-list-item *ngIf="!item.children && item.url && !item.onClick" [href]="item.url" [target]="item.target" [ngStyle]="{'padding-left': getPaddingVal() + 'px'}" (click)="onItemClick.emit(item)" [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
+   class="gn-sidebar-list-link menu-list-item" [title]="item.title" [attr.class]="'gn-sidebar-list-link menu-list-item menu-item-level-'+depth">
+    <ng-container
+        *ngTemplateOutlet="itemBody">
+    </ng-container>
+</a>
+
+<a mat-list-item *ngIf="item.children" (click)="onItemSelected(item)" [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
+   [title]="item.title" [class]="'gn-sidebar-list-link menu-list-item menu-item-level-'+depth">
+    <div class="gn-sidebar-list-link-content">
+      <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon><i *ngIf="item.iconUrl"><img [src]="item.iconUrl" [ngStyle]="{height:'16px'}"/></i><span class="menu-item-title">{{ item.title }}</span>
+      <span fxFlex *ngIf="item.children && item.children.length">
+        <span fxFlex></span>
+        <!--
+            <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
+              expand_more
+            </mat-icon>
+        -->
+        <b class="gn-sidebar-list-link-arrow fa fa-caret-up" [@indicatorRotate]="expanded ? 'expanded': 'collapsed'"></b>
+
+      </span>
+    </div>
+</a>
+<!--
+
+
+-->
+
+<div *ngIf="item.children" [@indicatorShowHide]="expanded ? 'expanded': 'collapsed'" [ngClass]="'sub-menu menu-level-'+(depth+1)">
+  <span class="menu-item-title-tablet gn-sidebar-list-link" *ngIf="depth===0" style="display: none;">{{ item.title }}</span>
+  <gn-navbar-menu-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1">
+  </gn-navbar-menu-item>
+</div>
+

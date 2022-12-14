@@ -1,0 +1,73 @@
+<mat-sidenav-container [class]="'sidenav-container '+(screenSize | async)" [ngClass]="{'print-mode':routeData.printMode}">
+  <mat-sidenav #drawer class="sidenav" [ngClass]="{'hide-print':routeData.printMode}" fixedInViewport
+      [attr.role]="!isDesktop ? 'dialog' : 'navigation'"
+      [mode]="!isDesktop && !routeData.printMode ? 'over' : 'side'"
+      [opened]="isDesktop && !routeData.printMode"
+      [disableClose]="isDesktop && !routeData.printMode"
+      >
+    <mat-toolbar>
+      <div class="logo"><img id="site-logo" class="site-logo" src="/assets/images/Logo_new.png" alt="logo"></div>
+    </mat-toolbar>
+
+    <gn-navbar-menu
+      [menuItems]="menuItems"
+    ></gn-navbar-menu>
+
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="{'no-scroll':scrollDisabled | async}">
+    <mat-toolbar color="white"  [ngClass]="{'hide-print':routeData.printMode}" >
+      <button class="toggle-sidenav"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="!isDesktop">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <ul *ngIf="(screenSize | async)!=='sm'"><!--
+          <li *ngFor="let model of models"
+            id='header_curriculum'
+            class="nav-item"
+            [ngClass]="{'background-active':currentModel?.modelId === model.modelId }"
+          >
+            <a mat-button [routerLink]="['/model', model.modelId]">
+              {{model.name}}
+            </a>
+          </li>
+        <li
+          id='professional_curriculum'
+          class='nav-item'
+        >
+
+          <a mat-button
+            href='https://adoption.greenninja.org'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Adoption
+          </a>
+        </li> -->
+      </ul>
+
+      <div class="navbar-right user-registered"  *ngIf="user">
+        <div id="header-bar" class="d-flex"></div>
+        <ng-container>
+
+            <button mat-button [matMenuTriggerFor]="menu">
+                {{user.username}} <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item [routerLink]="'/profile'"><mat-icon>settings</mat-icon> Settings</a>
+                <a mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Logout</a>
+            </mat-menu>
+        </ng-container>
+      </div>
+    </mat-toolbar>
+
+    <div class="content-wrap">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

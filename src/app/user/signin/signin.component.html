@@ -1,0 +1,43 @@
+<div class="container-fluid" id="login-container">
+  <div class="login-wrapper">
+    <span class="bg-wrap"></span>
+    <div class="auth-wrapper">
+      <div class="tab-content">
+        <div
+          role="tabpanel"
+          class="tab-pane active"
+          id="teacher-login"
+        >
+          <div class="auth-container" id="login">
+            <h1>Account Login</h1>
+            <div>
+              <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" name="SigninForm" class="form-signin" id="signin-form">
+                <div class="auth-form">
+                  <div class="form-group txtbox">
+                    <span *ngIf="errorMessage" class="error-message">{{errorMessage}}</span>
+                  </div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Username/Email</mat-label>
+                    <input matInput placeholder="Enter your username / email" formControlName="username" required autofocus>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Enter your password" formControlName="password" required>
+                  </mat-form-field>
+
+                  <div class="submit-btn">
+                    <button mat-raised-button color="primary" [disabled]="loginInProgress" type="submit">
+                      Sign In
+                    </button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
