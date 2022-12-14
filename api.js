@@ -30,7 +30,7 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/login', bodyParser.json(),  async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, password } = req.body;
     res.header('Allow-Origin-With-Credentials', 'true');
     console.log('loginServer');
 
@@ -48,7 +48,6 @@ router.post('/login', bodyParser.json(),  async (req, res) => {
             req.session = req.session || {};
             req.session.username = username;
             req.session.userId = userData.user_id;
-            req.session.email = email;
             req.session.role = role.name;
             req.session.first_name = userData.first_name;
             req.session.last_name = userData.last_name;
