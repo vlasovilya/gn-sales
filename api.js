@@ -5,7 +5,7 @@ const app = express();
 const config = require('./config.json');
 const bcrypt = require('bcrypt-nodejs');
 
-const { Op, User, UserRole, Role, Worksheet, File } = require('./models');
+const { Op, User, UserRole, Role, Worksheet, UserWorksheet, File } = require('./models');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -82,13 +82,14 @@ router.post('/login', bodyParser.json(),  async (req, res) => {
 
     const {modelId, unitId, lessonId}=req.params;
 
-    const userWorksheet=[
-        {worksheet_id: 1654, lesson_id: 202, unit_id: 17, model_id: 11},
-        {worksheet_id: 1656, lesson_id: 202, unit_id: 17, model_id: 11},
-        {worksheet_id: 1657, lesson_id: 202, unit_id: 17, model_id: 11},
-        {worksheet_id: 1659, lesson_id: 202, unit_id: 17, model_id: 11},
-        {worksheet_id: 1660, lesson_id: 202, unit_id: 17, model_id: 11},
-    ];
+    const userWorksheet=await UserWorksheet.findAll({
+        where: {
+          user_id: req.session.userId,
+          lesson_id: lessonId,
+          unit_id: unitId,
+          model_id: modelId
+        }
+    });
 
     const data=await Worksheet.findAll({
         where: {},
